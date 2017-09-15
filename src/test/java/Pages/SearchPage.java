@@ -19,7 +19,7 @@ public class SearchPage {
     public void typeVideoName() {
         WebElement searchField = driver.findElement(searchFieldLocator);
         searchField.click();
-        searchField.sendKeys("pubg window jump");
+        searchField.sendKeys("pubg window jump bzk");
         WebElement searchButton = driver.findElement(searchButtonLocator);
         searchButton.click();
     }
