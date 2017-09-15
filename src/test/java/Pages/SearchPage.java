@@ -14,7 +14,7 @@ public class SearchPage {
 
     private By searchFieldLocator = By.xpath(".//*[@id='search']");
     private By searchButtonLocator = By.xpath(".//*[@id='search-icon-legacy']");
-    private By videoLocator = By.xpath(".//*[@title=\"Как выпрыгнуть в окно PUBG | How to jump through window - PlayerUnknown's Battlegrounds\"]");
+    private By videoLocator = By.xpath(".//*[@id='video-title' and @href='/watch?v=g8ud96hgrDM&t=1s']");
 
     public void typeVideoName() {
         WebElement searchField = driver.findElement(searchFieldLocator);
@@ -27,6 +27,6 @@ public class SearchPage {
     public void videoClick() throws InterruptedException {
         WebElement video = driver.findElement(videoLocator);
         video.click();
-        Thread.sleep(15000);
+        Thread.sleep(1000);
     }
 }

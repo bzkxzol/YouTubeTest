@@ -16,11 +16,18 @@ public class VideoPage {
     private By likeButtonLocator = By.xpath(".//*[@id='top-level-buttons']/ytd-toggle-button-renderer[1]");
     private By playVideoLocator = By.xpath("//button[@class='ytp-play-button ytp-button']");
     private By advertLocator = By.xpath(".//*[@class='image-container']/a/img");
+    private By muteVideoLocator = By.xpath("//button[@class='ytp-mute-button ytp-button']");
 
 //    public void clickLikeButton(){
 //        WebElement likeButton = driver.findElement(likeButtonLocator);
 //        likeButton.click();
 //    }
+
+    public void muteVideo(){
+        WebElement muteVideo = driver.findElement(muteVideoLocator);
+        Actions mute = new Actions(driver);
+        mute.moveToElement(muteVideo).click().build().perform();
+    }
 
     public void clickOnAdvert() throws InterruptedException {
         WebElement advertBlock = driver.findElement(advertLocator);
@@ -32,6 +39,6 @@ public class VideoPage {
         WebElement playVideoButton = driver.findElement(playVideoLocator);
         Actions play = new Actions(driver);
         play.moveToElement(playVideoButton).click().build().perform();
-        Thread.sleep(60000);
+        Thread.sleep(70000);
     }
 }

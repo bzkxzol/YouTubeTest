@@ -15,6 +15,8 @@ public class Tests extends ChromeSettings {
         searchPage.videoClick();
 
         String winHandleBefore = driver.getWindowHandle();
+        videoPage.muteVideo();
+        Thread.sleep(15000);
         videoPage.clickOnAdvert();
         driver.switchTo().window(winHandleBefore);
         Thread.sleep(1000);
