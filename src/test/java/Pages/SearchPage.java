@@ -14,12 +14,12 @@ public class SearchPage {
 
     private By searchFieldLocator = By.xpath(".//*[@id='search']");
     private By searchButtonLocator = By.xpath(".//*[@id='search-icon-legacy']");
-    private By videoLocator = By.xpath(".//*[@id='video-title' and @href='/watch?v=g8ud96hgrDM&t=1s']");
+    private By videoLocator = By.xpath(".//*[@id='video-title' and @href='/watch?v=g8ud96hgrDM']");
 
     public void typeVideoName() {
         WebElement searchField = driver.findElement(searchFieldLocator);
         searchField.click();
-        searchField.sendKeys("pubg jump through window");
+        searchField.sendKeys("pubg window jump");
         WebElement searchButton = driver.findElement(searchButtonLocator);
         searchButton.click();
     }
