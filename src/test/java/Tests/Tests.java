@@ -5,16 +5,20 @@ import Pages.VideoPage;
 import Settings.ChromeSettings;
 import org.testng.annotations.Test;
 
-public class Tests extends ChromeSettings{
+public class Tests extends ChromeSettings {
 
     @Test
-    public void searchVideo() throws InterruptedException{
+    public void searchVideo() throws InterruptedException {
         SearchPage searchPage = new SearchPage(driver);
         VideoPage videoPage = new VideoPage(driver);
-
         searchPage.typeVideoName();
         searchPage.videoClick();
-        videoPage.clickLikeButton();
-    }
 
+        String winHandleBefore = driver.getWindowHandle();
+        videoPage.clickOnAdvert();
+        driver.switchTo().window(winHandleBefore);
+        Thread.sleep(1000);
+
+        videoPage.playVideoClick();
+    }
 }

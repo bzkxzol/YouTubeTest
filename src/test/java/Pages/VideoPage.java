@@ -1,22 +1,37 @@
 package Pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class VideoPage {
 
-    private WebDriver driver;
+    private ChromeDriver driver;
 
-    public VideoPage(WebDriver driver) {
+    public VideoPage(ChromeDriver driver) {
         this.driver = driver;
     }
 
-    By likeButtonLocator = By.xpath(".//*[@id='top-level-buttons']/ytd-toggle-button-renderer[1]");
+    private By likeButtonLocator = By.xpath(".//*[@id='top-level-buttons']/ytd-toggle-button-renderer[1]");
+    private By playVideoLocator = By.xpath("//button[@class='ytp-play-button ytp-button']");
+    private By advertLocator = By.xpath(".//*[@class='image-container']/a/img");
 
-    public void clickLikeButton(){
-        WebElement likeButton = driver.findElement(likeButtonLocator);
-        likeButton.click();
+//    public void clickLikeButton(){
+//        WebElement likeButton = driver.findElement(likeButtonLocator);
+//        likeButton.click();
+//    }
+
+    public void clickOnAdvert() throws InterruptedException {
+        WebElement advertBlock = driver.findElement(advertLocator);
+        advertBlock.click();
+        Thread.sleep(5000);
     }
 
+    public void playVideoClick() throws InterruptedException {
+        WebElement playVideoButton = driver.findElement(playVideoLocator);
+        Actions play = new Actions(driver);
+        play.moveToElement(playVideoButton).click().build().perform();
+        Thread.sleep(60000);
+    }
 }

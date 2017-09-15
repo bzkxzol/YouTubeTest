@@ -1,26 +1,25 @@
 package Pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SearchPage {
 
-    private WebDriver driver;
+    private ChromeDriver driver;
 
-    public SearchPage(WebDriver driver) {
+    public SearchPage(ChromeDriver driver) {
         this.driver = driver;
     }
 
-    By searchFieldLocator = By.xpath(".//*[@id='search']");
-    By searchButtonLocator = By.xpath(".//*[@id='search-icon-legacy']");
-    By videoLocator = By.xpath(".//*[@title=\"Как выпрыгнуть в окно PUBG | How to jump through window - PlayerUnknown's Battlegrounds\"]");
+    private By searchFieldLocator = By.xpath(".//*[@id='search']");
+    private By searchButtonLocator = By.xpath(".//*[@id='search-icon-legacy']");
+    private By videoLocator = By.xpath(".//*[@title=\"Как выпрыгнуть в окно PUBG | How to jump through window - PlayerUnknown's Battlegrounds\"]");
 
-    public void typeVideoName(){
+    public void typeVideoName() {
         WebElement searchField = driver.findElement(searchFieldLocator);
         searchField.click();
         searchField.sendKeys("pubg jump through window");
-
         WebElement searchButton = driver.findElement(searchButtonLocator);
         searchButton.click();
     }
@@ -28,6 +27,6 @@ public class SearchPage {
     public void videoClick() throws InterruptedException {
         WebElement video = driver.findElement(videoLocator);
         video.click();
-        Thread.sleep(80000);
+        Thread.sleep(15000);
     }
 }
