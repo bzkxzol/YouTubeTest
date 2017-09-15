@@ -1,15 +1,15 @@
 package Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class VideoPage {
 
-    private ChromeDriver driver;
+    private WebDriver driver;
 
-    public VideoPage(ChromeDriver driver) {
+    public VideoPage(WebDriver driver) {
         this.driver = driver;
     }
 
