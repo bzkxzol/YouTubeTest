@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 public class VideoPage {
@@ -17,6 +18,7 @@ public class VideoPage {
     private By playVideoLocator = By.xpath("//button[@class='ytp-play-button ytp-button']");
     private By advertLocator = By.xpath(".//*[@class='image-container']/a/img");
     private By muteVideoLocator = By.xpath("//button[@class='ytp-mute-button ytp-button']");
+    private By bigAdvertLocator = By.xpath("//*[@id='player-ads']/ytd-player-legacy-desktop-watch-ads-renderer/ytd-companion-slot-renderer");
 
 //    public void clickLikeButton(){
 //        WebElement likeButton = driver.findElement(likeButtonLocator);
@@ -40,5 +42,12 @@ public class VideoPage {
         Actions play = new Actions(driver);
         play.moveToElement(playVideoButton).click().build().perform();
         Thread.sleep(70000);
+    }
+
+    public void clickOnBigAdvert() throws InterruptedException {
+        WebElement advertBigBlock = driver.findElement(bigAdvertLocator);
+        Actions clickOnAd = new Actions(driver);
+        clickOnAd.moveToElement(advertBigBlock).click().build().perform();
+        Thread.sleep(1000);
     }
 }
